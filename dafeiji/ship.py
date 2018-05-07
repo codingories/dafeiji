@@ -23,6 +23,7 @@ class Ship():
         self.moving_left = False
     def update(self):
         """根据移动标志调整飞船的位置"""
+
         if self.moving_right and self.rect.right< self.screen_rect.right:
 
 
@@ -35,5 +36,6 @@ class Ship():
                 #print('left',self.rect.center )
         self.rect.centerx = self.center
     def blitme(self):
+
         """在制定位置绘制飞船"""
-        self.screen.blit(self.image,self.rect)
+        self.screen.blit(self.image, self.rect)
