@@ -3,7 +3,7 @@ from pygame.sprite import Sprite
 class Alien(Sprite):
     """表示单个外星人的类"""
     def __init__(self, ai_settings, screen):
-        super(Alien,self).__init__()
+        super(Alien, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
 
@@ -42,3 +42,34 @@ class Alien(Sprite):
         """向左或向右移动外星人"""
         self.x += (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
         self.rect.x = self.x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
