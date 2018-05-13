@@ -5,7 +5,7 @@ from settings import Settings
 from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
-
+from alien import Alien
 
 def run_game():
     pygame.init()  # 初始化游戏并创建一个屏幕对象
@@ -18,16 +18,20 @@ def run_game():
     ship = Ship(ai_settings, screen)
     # 创建一个用于存储子弹的编组
     bullets = Group()
-
+    #alien = Alien(ai_settings, screen)
+    aliens = Group()
+    gf.create_fleet(ai_settings, screen,ship,aliens)
     while True:  # 开始游戏主循环
-        ship.blitme()
+        #ship.blitme()
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        bullets.update()
-        gf.update_screen(ai_settings, screen, ship, bullets)
 
+        # 删除已消失的子弹
+        gf.update_bullets(bullets)
 
-        #gf.update_screen(ai_settings, screen, ship,bullets)
+        gf.update_aliens(ai_settings, aliens)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
+
 
 
 run_game()
